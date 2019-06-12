@@ -3,16 +3,19 @@
 Songr is a web server.  It handles requests on paths and delivers appropriate responses.
 
 ## Setup
-* Clone the repo via github
+* Clone the repo via github\
 ```git clone <repo url>```
-* Run the application via your IDE or
+* Run the application via your IDE or\
 ```./gradlew bootRun```
 
 ## Paths
 
-/hello ```public String getHelloWorld()``` Returns "Hello, World!".
-/capitalize/{sentence}: ```public String capitalizePath(String sentence)``` Returns the string but capitalized.
-/reverse ```public String reverseSentence(sentence)``` Returns the string reverse, but just the words.
+Path: /hello\
+```public String getHelloWorld()``` Returns "Hello, World!".\
+Path: /capitalize/{sentence}:\
+```public String capitalizePath(String sentence)``` Takes in a string and returns that string Returns the string but capitalized.\
+Path: /reverse/?sentence={some string here}\
+  ```public String reverseSentence(sentence)``` Takes in a parameter sentence and returns the string reversed, but just the words reversed.
 
 # HELP
 
