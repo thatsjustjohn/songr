@@ -10,6 +10,10 @@ Songr is a web server.  It handles requests on paths and delivers appropriate re
 
 ## Paths
 
+Path: /albums Displays all the albums
+Path: /albums/new Allows you to create a new Album
+
+
 Path: /hello\
 ```public String getHelloWorld()``` Returns "Hello, World!".\
 Path: /capitalize/{sentence}:\
