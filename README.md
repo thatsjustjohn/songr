@@ -14,14 +14,13 @@ Songr is a web server.  It handles requests on paths and delivers appropriate re
 /capitalize/{sentence}: ```public String capitalizePath(String sentence)``` Returns the string but capitalized.
 /reverse ```public String reverseSentence(sentence)``` Returns the string reverse, but just the words.
 
-# HELP
 
-##Getting Started
+# Getting Started
 
 ### Reference Documentation
 For further reference, please consider the following sections:
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
+* [Official Gradle documentation](https://docs.gradle.org)
 
 ### Guides
 The following guides illustrate how to use some features concretely:
@@ -29,4 +28,11 @@ The following guides illustrate how to use some features concretely:
 * [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
 * [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
 * [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
+* [Producing a SOAP web service](https://spring.io/guides/gs/producing-web-service/)
+* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
+
+### Additional Links
+These additional references should also help you:
+
+* [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
 

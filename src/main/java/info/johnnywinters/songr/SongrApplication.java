@@ -1,4 +1,4 @@
-package com.johnnywinters.java401d.songr;
+package info.johnnywinters.songr;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
