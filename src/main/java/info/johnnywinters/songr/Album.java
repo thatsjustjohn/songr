@@ -16,7 +16,7 @@ public class Album {
     String imageUrl;
 
     @OneToMany(mappedBy = "album")
-    List<Song> Songs;
+    List<Song> songs;
 
     public Album() {}
 
@@ -29,7 +29,7 @@ public class Album {
     }
 
     public long getId() {
-        return id;
+        return this.id;
     }
 
     public String getTitle(){
@@ -37,18 +37,22 @@ public class Album {
     }
 
     public String getArtist() {
-        return artist;
+        return this.artist;
     }
 
     public int getSongCount() {
-        return songCount;
+        return this.songCount;
     }
 
     public int getLength() {
-        return length;
+        return this.length;
     }
 
     public String getImageUrl() {
-        return imageUrl;
+        return this.imageUrl;
+    }
+
+    public List<Song> getSongs() {
+        return this.songs;
     }
 }
