@@ -10,8 +10,13 @@ Songr is a web server.  It handles requests on paths and delivers appropriate re
 
 ## Paths
 
-Path: /albums Displays all the albums
-Path: /albums/new Allows you to create a new Album
+Path: /albums Displays all the albums\
+Path: /albums/new Allows you to create a new Album\
+Path: /songs Displays all the songs\
+Path: /songs/new Allows you to create a new Song (given the Album exists)\
+Path: /album?album={albumName} Displays the songs of an Album\
+Path: /album/{id}/songs Displays the songs based off an albums Database ID
+
 
 
 Path: /hello\
