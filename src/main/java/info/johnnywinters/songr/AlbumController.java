@@ -12,6 +12,8 @@ import org.springframework.web.servlet.view.RedirectView;
 public class AlbumController {
     @Autowired
     AlbumRepository albumRepository;
+    @Autowired
+    SongRepository songRepository;
 
     @GetMapping("/albums")
     public String getAllAlbums(Model m){
