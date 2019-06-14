@@ -1,9 +1,7 @@
 package info.johnnywinters.songr;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Album {
@@ -17,6 +15,9 @@ public class Album {
     int length;
     String imageUrl;
 
+    @OneToMany(mappedBy = "album")
+    List<Song> Songs;
+
     public Album() {}
 
     public Album(String title, String artist, int songCount, int length, String imageUrl){
@@ -25,6 +26,10 @@ public class Album {
        this.songCount = songCount;
        this.length = length;
        this.imageUrl = imageUrl;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getTitle(){
