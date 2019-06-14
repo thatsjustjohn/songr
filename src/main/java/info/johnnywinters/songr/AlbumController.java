@@ -3,10 +3,7 @@ package info.johnnywinters.songr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
@@ -17,6 +14,9 @@ public class AlbumController {
     AlbumRepository albumRepository;
     @Autowired
     SongRepository songRepository;
+
+
+    /////// Album Mapping ///////
 
     @GetMapping("/albums")
     public String getAllAlbums(Model m){
@@ -36,7 +36,17 @@ public class AlbumController {
         Album album = albumRepository.findById(id).get();
         Iterable<Song> songs = album.getSongs();
         int size = album.getSongs().size();
-//        Song randomSong = album.getSongs().get((int)(Math.random() * size));
+        m.addAttribute("songs", songs);
+        return "albumSongs";
+    }
+
+
+    @RequestMapping(value = "/album", method = RequestMethod.GET)
+    public String getSpecficAlbumByName(@RequestParam("album") String albumName, Model m) {
+        // .get to get value inside of optional
+        Album album = albumRepository.findByTitle(albumName).get(0);
+        Iterable<Song> songs = album.getSongs();
+        int size = album.getSongs().size();
         m.addAttribute("songs", songs);
         return "albumSongs";
     }
@@ -48,7 +58,9 @@ public class AlbumController {
         return new RedirectView("/albums");
     }
 
-    @GetMapping("/song/new")
+    /////// Song Mapping ///////
+
+    @GetMapping("/songs/new")
     public String getAddSongForm(){
         return "songForm";
     }
@@ -69,7 +81,7 @@ public class AlbumController {
             return new RedirectView("/songs");
         } else {
             // Some error cause the album doesn't exist
-            return new RedirectView("/songs");
+            return new RedirectView("/albums/new");
         }
 
     }
