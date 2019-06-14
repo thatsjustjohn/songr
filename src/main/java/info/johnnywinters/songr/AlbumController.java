@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.List;
+
 @Controller
 public class AlbumController {
     @Autowired
@@ -32,5 +34,31 @@ public class AlbumController {
         Album album = new Album(title, artist, songCount, length, imageUrl);
         albumRepository.save(album);
         return new RedirectView("/albums");
+    }
+
+    @GetMapping("/song/new")
+    public String getAddSongForm(){
+        return "songForm";
+    }
+
+    @GetMapping("/songs")
+    public String getAllSongs(Model m){
+        Iterable<Song> songs = songRepository.findAll();
+        m.addAttribute("songs", songs);
+        return "allSongs";
+    }
+
+    @PostMapping("/songs")
+    public RedirectView addSong(@RequestParam String title, @RequestParam int length, @RequestParam int trackNumber, @RequestParam String album) {
+        List<Album> albumsWithThatName = albumRepository.findByTitle(album);
+        if(albumsWithThatName.size() > 0) {
+            Song song = new Song(title, length, trackNumber, albumsWithThatName.get(0));
+            songRepository.save(song);
+            return new RedirectView("/songs");
+        } else {
+            // Some error cause the album doesn't exist
+            return new RedirectView("/songs");
+        }
+
     }
 }
